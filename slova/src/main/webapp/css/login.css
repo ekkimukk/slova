@@ -1,0 +1,137 @@
+body {
+  display: flex;
+  justify-content: center; /* Центровка по горизонтали */
+  align-items: center;    /* Центровка по вертикали */
+  height: 100vh;          /* Высота на весь экран */
+  width: 100vh;          /* Высота на весь экран */
+  margin: 0;              /* Убираем отступы */
+  font-family: "EB Garamond";
+  background-color: #fbf1c7;
+  color: #282828;
+}
+
+/* .container { */
+/*     background: #fbf1c7; */
+/*     overflow: visible; */
+/*     border-radius: 8px; */
+/*     box-shadow: */
+/*         #83a598 0px 0px 0px 3px, */
+/*         rgb(251, 241, 199) 10px 10px 0px -3px, */
+/*         #b8bb26 10px 10px, */
+/*         rgb(251, 241, 199) 20px 20px 0px -3px, */
+/*         #fabd2f 20px 20px, */
+/*         rgb(251, 241, 199) 30px 30px 0px -3px, */
+/*         #fe8019 30px 30px, */
+/*         rgb(251, 241, 199) 40px 40px 0px -3px, */
+/*         #fb4934 40px 40px; */
+/*     width: 300px; */
+/* } */
+
+.container {
+    display: flex;            /* Enable flexbox */
+    justify-content: center;  /* Center horizontally */
+    width: 500px;
+    /* box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px; */
+    box-shadow:
+        #83a598 0px 0px 0px 3px, /* Убрали inset */
+        rgb(251, 241, 199) 10px 10px 0px -3px,
+        #b8bb26 10px 10px,
+        rgb(251, 241, 199) 20px 20px 0px -3px,
+        #fabd2f 20px 20px,
+        rgb(251, 241, 199) 30px 30px 0px -3px,
+        #fe8019 30px 30px,
+        rgb(251, 241, 199) 40px 40px 0px -3px,
+        #fb4934 40px 40px;
+}
+
+.container h1 {
+  width: 200px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #282828;
+}
+
+.container input[type="text"],
+.container input[type="password"] {
+  width: 92%;             /* Ширина поля на весь контейнер */
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #282828;
+  border-radius: 5px;
+  font-family: "EB Garamond";
+  font-size: 16px;
+  color: #282828;
+  background-color: #fbf1c7;
+}
+
+.container p {
+  color: #cc241d;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.container p[href] {
+  color: #282828;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.container button {
+  align-items: center;
+  background-color: #b8bb26;
+  border: 2px solid #282828;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #282828;
+  cursor: pointer;
+  display: flex;
+  font-family: "EB Garamond";
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.container button:after {
+  background-color: #282828;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.container button:hover:after {
+  transform: translate(0, 0);
+}
+
+.container button:active {
+  background-color: #98971a;
+  outline: 0;
+}
+
+.container button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0 40px;
+  }
+}
+

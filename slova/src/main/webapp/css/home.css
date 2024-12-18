@@ -1,0 +1,149 @@
+body {
+  font-family: "EB Garamond";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;/* Центровка по горизонтали */
+  align-items: center;    /* Центровка по вертикали */
+  height: 100vh;          /* Высота на весь экран */
+  margin: 0;              /* Убираем отступы */
+  background-color: #fbf1c7;
+  color: #282828;
+}
+
+/* .container { */
+/*   background: #f2e5bc;     /* Фон контейнера */ */
+/*   border-radius: 8px;     /* Скругленные углы */ */
+/*   box-shadow: 0px 4px 10px rgba(242, 229, 188, 1); /* Тень */ */
+/*   padding: 40px;           /* Внутренние отступы */ */
+/*   width: 300px;            /* Ширина формы */ */
+/* } */
+/**/
+.container {
+  width: 300px;
+}
+
+.container input[type="text"] {
+  width: 92%;             /* Ширина поля на весь контейнер */
+  padding: 10px;
+  margin: 0px 0;
+  border: 2px solid #282828;
+  border-radius: 5px;
+  font-family: "EB Garamond";
+  font-size: 16px;
+  color: #282828;
+  background-color: #fbf1c7;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #282828;
+}
+
+.footer {
+  position: fixed;        /* Закрепляем внизу страницы */
+  bottom: 5px;            /* Отступ от нижнего края */
+  right: 10px;            /* Отступ от правого края */
+  font-size: 10px;        /* Маленький размер шрифта */
+  color: #282828;         /* Светлый, едва заметный цвет */
+  font-family: "EB Garamond";
+}
+
+.footer p {
+  margin: 0;              /* Убираем отступы внутри подписи */
+}
+
+.button-56 {
+  font-family: "EB Garamond";
+  align-items: center;
+  /* background-color: #fee6e3; */
+  border: 2px solid #282828;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #282828;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  width: 300px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #282828;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  /* background-color: #ffdeda; */
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+
+#button-green {
+  background-color: #b8bb26;
+}
+#button-green:active {
+  background-color: #98971a;
+}
+
+#button-blue {
+  background-color: #83a598;
+}
+#button-blue:active {
+  background-color: #458588;
+}
+
+#button-red {
+  background-color: #fb4934;
+}
+#button-red:active {
+  background-color: #cc241d;
+}
+
+#button-search {
+  background-color: #fabd2f;
+}
+#button-search:active {
+  background-color: #d79921;
+}
+
+#button-show {
+  background-color: #d3869b;
+}
+#button-show:active {
+  background-color: #b16286;
+}
+
