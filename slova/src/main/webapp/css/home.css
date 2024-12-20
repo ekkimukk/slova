@@ -2,28 +2,29 @@ body {
   font-family: "EB Garamond";
   display: flex;
   flex-direction: column;
-  justify-content: center;/* Центровка по горизонтали */
-  align-items: center;    /* Центровка по вертикали */
-  height: 100vh;          /* Высота на весь экран */
-  margin: 0;              /* Убираем отступы */
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+   margin: 0;
   background-color: #fbf1c7;
   color: #282828;
 }
 
 /* .container { */
-/*   background: #f2e5bc;     /* Фон контейнера */ */
-/*   border-radius: 8px;     /* Скругленные углы */ */
-/*   box-shadow: 0px 4px 10px rgba(242, 229, 188, 1); /* Тень */ */
-/*   padding: 40px;           /* Внутренние отступы */ */
-/*   width: 300px;            /* Ширина формы */ */
+/*   background: #f2e5bc; */
+/*   border-radius: 8px;  */
+/*   box-shadow: 0px 4px 10px rgba(242, 229, 188, 1); */
+/*   padding: 40px;       */
+/*   width: 300px;        */
 /* } */
-/**/
+
 .container {
   width: 300px;
 }
 
 .container input[type="text"] {
-  width: 92%;             /* Ширина поля на весь контейнер */
+  width: 300px;
+  max-width: 92%;
   padding: 10px;
   margin: 0px 0;
   border: 2px solid #282828;
@@ -41,16 +42,35 @@ h1 {
 }
 
 .footer {
-  position: fixed;        /* Закрепляем внизу страницы */
-  bottom: 5px;            /* Отступ от нижнего края */
-  right: 10px;            /* Отступ от правого края */
-  font-size: 10px;        /* Маленький размер шрифта */
-  color: #282828;         /* Светлый, едва заметный цвет */
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  font-size: 10px;
+  color: #282828;
   font-family: "EB Garamond";
 }
 
 .footer p {
-  margin: 0;              /* Убираем отступы внутри подписи */
+  margin: 0;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #282828;
+}
+/* Добавление отступов внутри ячеек для более приятного отображения */
+table td {
+    padding: 5px;
+    text-align: center;
+}
+/* Если хотите, чтобы таблица выглядела более аккуратно */
+table {
+    border-collapse: collapse; /* Убирает лишние промежутки между границами */
+    width: 100%; /* Таблица занимает всю ширину */
+}
+/* Стили для заголовков таблицы */
+table thead th {
+    text-align: center;
+    padding: 5px;
 }
 
 .button-56 {

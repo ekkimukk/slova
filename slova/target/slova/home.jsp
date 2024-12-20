@@ -20,14 +20,13 @@
         <h1>Slova LIBRARY</h1>
     </header>
 
-    <div class="!container">
         <%-- THREE OPTIONS --%>
         <form action="" method="get">
             <button class="button-56" id="button-green" type="submit" formaction="./inProgress.jsp">Допса</button>
             <br>
             <button class="button-56" id="button-blue" type="submit" formaction="./game/index.html">Entertainment</button>
             <br>
-            <button class="button-56" id="button-red" type="submit" formaction="./editBooks.jsp">Edit books</button>
+            <button class="button-56" id="button-red" type="submit" formaction="./manageBooks.jsp">Manage books</button>
             <br><br>
         </form>
 
@@ -46,76 +45,89 @@
             <button class="button-56" id="button-search" type="submit">Search</button>
             <br>
         </form>
-    </div>
 
-<table id="editableTable">
-    <tbody id="editableTable-tbody">
-    <%
-        List<Book> books = (List<Book>) request.getAttribute("books");
-        if (books != null && !books.isEmpty()) {
-    %>
-    <h2>Books List:</h2>
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Number Of Copies</th>
-        <th>Year Of Publication</th>
-    </tr>
-    </thead>
-    <%
-            for (Book book : books) {
-    %>
-    
-    <tr>
-        <td>
-            <label>
-                <input type="text" placeholder="EMPTY" value="<%= book.getTitle()%>" class="table-input">
-            </label>
-        </td>
-        <td>
-            <label>
-                <input type="text" data-placeholder="EMPTY" value="<%= book.getAuthor()%>" class="table-input">
-            </label>
-        </td>
-        <td>
-            <label>
-                <input type="text" placeholder="EMPTY" value="<%= book.getNumberOfCopies()%>" class="table-input">
-            </label>
-        </td>
-        <td>
-            <label>
-                <input type="text" placeholder="EMPTY" value="<%= book.getYearOfPublication()%>" class="table-input">
-            </label>
-        </td>
-        <td>
-            <form action="lendBook" method="post">
-                <input type="hidden" name="bookId" value="<%= book.getId() %>">
-                <input type="text" name="cardId" placeholder="Enter Card ID" required>
-                <input type="date" name="returnDate" required>
-                <button type="submit">Lend the Book</button>
-            </form>
-        </td>
+    <table>
         <%
-            String message = (String) request.getAttribute("message");
-            if (message != null) {
+            List<Book> books = (List<Book>) request.getAttribute("books");
+            if (books != null && !books.isEmpty()) {
         %>
-            <p><strong><%= message %></strong></p>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Number Of Copies</th>
+                <th>Year Of Publication</th>
+            </tr>
+        </thead>
         <%
-            }
+                for (Book book : books) {
         %>
+        
+        <tbody>
+        <tr>
+            <td>
+                <%--
+                <label>
+                    <input type="text" placeholder="EMPTY" value="<%= book.getTitle()%>" class="table-input">
+                </label>
+                --%>
+                <%= book.getTitle() %>
+            </td>
+            <td>
+                <%--
+                <label>
+                    <input type="text" data-placeholder="EMPTY" value="<%= book.getAuthor()%>" class="table-input">
+                </label>
+                --%>
+                <%= book.getAuthor() %><br>
+            </td>
+            <td>
+                <%--
+                <label>
+                    <input type="text" placeholder="EMPTY" value="<%= book.getNumberOfCopies()%>" class="table-input">
+                </label>
+                --%>
+                <%= book.getNumberOfCopies() %>
+            </td>
+            <td>
+                <%--
+                <label>
+                    <input type="text" placeholder="EMPTY" value="<%= book.getYearOfPublication()%>" class="table-input">
+                </label>
+                --%>
+                <%= book.getYearOfPublication() %><br>
+            </td>
+            <td>
+                <div class="searchResult">
+                    <%--
+                    <form action="lendBook" method="post">
+                        <input type="hidden" name="bookId" value="<%= book.getId() %>">
+                        <input type="text" name="cardId" placeholder="Enter Card ID" required>
+                        <input type="date" name="returnDate" required>
+                        <button type="submit">Lend the Book</button>
+                    </form>
+                    --%>
+                </div>
+            </td>
+            <%
+                String message = (String) request.getAttribute("message");
+                if (message != null) {
+            %>
+                <p><strong><%= message %></strong></p>
+            <%
+                }
+            %>
 
-        <%
+            <%
+                }
+            } else if (books != null) {
+            %>
+                <tr><td colspan="5">No books found.</td></tr>
+            <%
             }
-        } else if (books != null) {
-        %>
-            <h2>Books List:</h2>
-            <tr><td colspan="5">No books found.</td></tr>
-        <%
-        }
-        %>
-    </tbody>
-</table>
+            %>
+        </tbody>
+    </table>
 
 <footer class="footer">
     <p>Created and posted by ekkimukk.</p>

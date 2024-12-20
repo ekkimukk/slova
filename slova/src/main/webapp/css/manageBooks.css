@@ -22,8 +22,8 @@ body {
   width: 300px;
 }
 
-.container input[type="text"] {
-  width: 300px;
+input {
+  width: 92%;
   max-width: 92%;
   padding: 10px;
   margin: 0px 0;
@@ -33,6 +33,11 @@ body {
   font-size: 16px;
   color: #282828;
   background-color: #fbf1c7;
+}
+
+#cardID {
+    width: 33px;
+    font-size: 10px;
 }
 
 h1 {
@@ -71,6 +76,10 @@ table {
 table thead th {
     text-align: center;
     padding: 5px;
+}
+
+table input {
+    height: 10px;
 }
 
 .button-56 {
@@ -132,38 +141,56 @@ table thead th {
   }
 }
 
-#button-green {
-  background-color: #b8bb26;
+#button-add {
+  background-color: #8ec07c;
 }
-#button-green:active {
-  background-color: #98971a;
-}
-
-#button-blue {
-  background-color: #83a598;
-}
-#button-blue:active {
-  background-color: #458588;
-}
-
-#button-red {
-  background-color: #fb4934;
-}
-#button-red:active {
-  background-color: #cc241d;
-}
-
-#button-search {
-  background-color: #fabd2f;
-}
-#button-search:active {
-  background-color: #d79921;
-}
-
-#button-show {
-  background-color: #d3869b;
+#button-add:active {
+  background-color: #689d6a;
+}#button-show {
+  background-color: #fe8019;
 }
 #button-show:active {
-  background-color: #b16286;
+  background-color: #d65d0e;
+}
+
+
+/* CSS */
+.button-89 {
+  font-family: "EB Garamond";
+  border-radius: 8px;
+  --b: 2px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #282828;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .2s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  border-radius: 8px;
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  border-radius: 8px;
+  background: var(--color);
+  color: #fbf1c7;
 }
 

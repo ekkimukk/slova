@@ -64,4 +64,34 @@
         <url-pattern>/addBook</url-pattern>
     </servlet-mapping>
 
+    <!-- 6 -->
+    <servlet>
+        <servlet-name>ShowAllBooksServlet</servlet-name>
+        <servlet-class>com.ekkimukk.ShowAllBooksServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowAllBooksServlet</servlet-name>
+        <url-pattern>/showAllBooks</url-pattern>
+    </servlet-mapping>
+
+    <!-- 7 -->
+    <servlet>
+        <servlet-name>UpdateBookServlet</servlet-name>
+        <servlet-class>com.ekkimukk.UpdateBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateBookServlet</servlet-name>
+        <url-pattern>/updateBook</url-pattern>
+    </servlet-mapping>
+
+    <!-- 8 -->
+    <servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>com.ekkimukk.DeleteBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <url-pattern>/deleteBook</url-pattern>
+    </servlet-mapping>
+
 </web-app>

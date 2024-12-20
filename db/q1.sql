@@ -35,11 +35,11 @@ CREATE TABLE visitors (
 );
 
 CREATE TABLE card_book (
-    card_id INT NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     book_id INT NOT NULL,
-    return_date DATE NOT NULL,
-    PRIMARY KEY (card_id, book_id, return_date),
-    FOREIGN KEY (card_id) REFERENCES cards(id) ON DELETE CASCADE,
-    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
+    card_id INT NOT NULL,
+    lend_date DATE NOT NULL,
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
+    FOREIGN KEY (card_id) REFERENCES cards(id) ON DELETE CASCADE
 );
 
