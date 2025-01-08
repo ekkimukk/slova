@@ -94,4 +94,24 @@
         <url-pattern>/deleteBook</url-pattern>
     </servlet-mapping>
 
+    <!-- 9 -->
+    <servlet>
+        <servlet-name>CreateCardServlet</servlet-name>
+        <servlet-class>com.ekkimukk.CreateCardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateCardServlet</servlet-name>
+        <url-pattern>/createCard</url-pattern>
+    </servlet-mapping>
+
+    <!-- 10 -->
+    <servlet>
+        <servlet-name>RequestBookServlet</servlet-name>
+        <servlet-class>com.ekkimukk.RequestBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestBookServlet</servlet-name>
+        <url-pattern>/requestBook</url-pattern>
+    </servlet-mapping>
+
 </web-app>

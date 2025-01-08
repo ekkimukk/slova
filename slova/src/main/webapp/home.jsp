@@ -22,7 +22,7 @@
 
         <%-- THREE OPTIONS --%>
         <form action="" method="get">
-            <button class="button-56" id="button-green" type="submit" formaction="./inProgress.jsp">Допса</button>
+            <button class="button-56" id="button-green" type="submit" formaction="./nedopsa.jsp">Допса</button>
             <br>
             <button class="button-56" id="button-blue" type="submit" formaction="./game/index.html">Entertainment</button>
             <br>
@@ -53,9 +53,9 @@
         %>
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Year Of Publication</th>
+                <th><a href="listAllBooks?sortBy=title">Title</a></th>
+                <th><a href="listAllBooks?sortBy=author">Author</a></th>
+                <th><a href="listAllBooks?sortBy=year_of_publication">Year Of Publication</a></th>
                 <th>Library</th>
                 <th>Number Of Copies</th>
             </tr>

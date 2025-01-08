@@ -27,8 +27,16 @@ public class SearchBooksServlet extends HttpServlet {
         List<Book> books = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-            String sql = "SELECT id, title, author, number_of_copies, year_of_publication FROM books "
-                    + "WHERE title LIKE ? OR author LIKE ? OR year_of_publication LIKE ?";
+            // String sql = "SELECT id, title, author, number_of_copies, year_of_publication FROM books "
+                    // + "WHERE title LIKE ? OR author LIKE ? OR year_of_publication LIKE ?";
+
+            String sql = "SELECT b.id AS book_id, b.title, b.author, b.year_of_publication, " +
+                "l.name AS library_name, lb.number_of_copies " +
+                "FROM books b " +
+                "JOIN library_book lb ON b.id = lb.book_id " +
+                "JOIN libraries l ON lb.library_id = l.id " +
+                "WHERE b.title LIKE ? OR b.author LIKE ? OR b.year_of_publication LIKE ?";
+
             PreparedStatement pstmt = connection.prepareStatement(sql);
             String likeQuery = "%" + query + "%";
             pstmt.setString(1, likeQuery);
@@ -38,11 +46,11 @@ public class SearchBooksServlet extends HttpServlet {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 Book book = new Book(
-                    rs.getInt("id"), 
-                    rs.getString("title"), 
-                    rs.getString("author"), 
+                    rs.getInt("book_id"),
+                    rs.getString("title"),
+                    rs.getString("author"),
                     rs.getInt("year_of_publication"),
-                    rs.getString("1"), 
+                    rs.getString("library_name"),
                     rs.getInt("number_of_copies")
                 );
                 books.add(book);

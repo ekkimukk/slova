@@ -3,12 +3,10 @@ package com.ekkimukk;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,40 +15,45 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ListAllBooksServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    private static final String DB_URL = "jdbc:mariadb://localhost:3306/library_db";
+    private static final String DB_USER = "library_user";
+    private static final String DB_PASSWORD = "password";
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         List<Book> books = new ArrayList<>();
-        try {
-            String url = "jdbc:mariadb://localhost:3306/library_db";
-            String user = "library_user";
-            String password = "password";
+        String sortBy = request.getParameter("sortBy");
 
-            try (Connection conn = DriverManager.getConnection(url, user, password);
-                Statement stmt = conn.createStatement();
-                // ResultSet rs = stmt.executeQuery("SELECT id, title, author, number_of_copies, year_of_publication FROM books")) {
-                // ResultSet rs = stmt.executeQuery("SELECT id, title, author, number_of_copies, year_of_publication FROM books")) {
+        if (sortBy == null || !(sortBy.equals("title") || sortBy.equals("author") || sortBy.equals("year_of_publication"))) {
+            sortBy = "title";
+        }
 
-                ResultSet rs = stmt.executeQuery(
-                    "SELECT b.id AS book_id, b.title, b.author, b.year_of_publication, " +
-                    "l.name AS library_name, lb.number_of_copies " +
-                    "FROM books b " +
-                    "JOIN library_book lb ON b.id = lb.book_id " +
-                    "JOIN libraries l ON lb.library_id = l.id")) {
+        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
+            String sql = "SELECT b.id AS book_id, b.title, b.author, b.year_of_publication, " +
+                         "l.name AS library_name, lb.number_of_copies " +
+                         "FROM books b " +
+                         "JOIN library_book lb ON b.id = lb.book_id " +
+                         "JOIN libraries l ON lb.library_id = l.id " +
+                         "ORDER BY " + sortBy;
 
-                while (rs.next()) {
-                    Book book = new Book(
-                        rs.getInt("book_id"),
-                        rs.getString("title"),
-                        rs.getString("author"),
-                        rs.getInt("year_of_publication"),
-                        rs.getString("library_name"),
-                        rs.getInt("number_of_copies")
-                    );
-                    books.add(book);
-                }
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Book book = new Book(
+                    rs.getInt("book_id"),
+                    rs.getString("title"),
+                    rs.getString("author"),
+                    rs.getInt("year_of_publication"),
+                    rs.getString("library_name"),
+                    rs.getInt("number_of_copies")
+                );
+                books.add(book);
             }
         } catch (Exception e) {
-            e.printStackTrace();
             request.setAttribute("error", "An error occurred while fetching books.");
+            e.printStackTrace();
         }
 
         request.setAttribute("books", books);

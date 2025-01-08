@@ -1,5 +1,6 @@
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/AddBookServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/Book.java
+/home/k/forritun/slova/slova/src/main/java/com/ekkimukk/CreateCardServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/DatabaseConnector.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/DatabaseManager.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/DeleteBookServlet.java
@@ -8,6 +9,7 @@
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/LoginServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/PasswordHasher.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/ReceiveBookServlet.java
+/home/k/forritun/slova/slova/src/main/java/com/ekkimukk/RequestBookServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/SearchBooksServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/ShowAllBooksServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/UpdateBookServlet.java
