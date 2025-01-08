@@ -16,14 +16,15 @@ CREATE TABLE workers (
 CREATE TABLE books (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    author VARCHAR(45) NOT NULL,
-    number_of_copies INT NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    -- number_of_copies INT NOT NULL,
     year_of_publication INT NOT NULL
 );
 
 CREATE TABLE cards (
     id INT AUTO_INCREMENT PRIMARY KEY,
     registration_place_id INT NOT NULL,
+    can_borrow BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (registration_place_id) REFERENCES libraries (id) ON DELETE CASCADE
 );
 
@@ -41,5 +42,14 @@ CREATE TABLE card_book (
     lend_date DATE NOT NULL,
     FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
     FOREIGN KEY (card_id) REFERENCES cards(id) ON DELETE CASCADE
+);
+
+CREATE TABLE library_book (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    book_id INT NOT NULL,
+    library_id INT NOT NULL,
+    number_of_copies INT NOT NULL,
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
+    FOREIGN KEY (library_id) REFERENCES libraries(id)
 );
 

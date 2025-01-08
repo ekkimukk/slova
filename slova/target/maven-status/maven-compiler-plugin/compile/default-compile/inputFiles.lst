@@ -6,6 +6,7 @@
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/LendBookServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/ListAllBooksServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/LoginServlet.java
+/home/k/forritun/slova/slova/src/main/java/com/ekkimukk/PasswordHasher.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/ReceiveBookServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/SearchBooksServlet.java
 /home/k/forritun/slova/slova/src/main/java/com/ekkimukk/ShowAllBooksServlet.java

@@ -11,6 +11,18 @@
 </head>
 
 <body>
+
+     <%
+        String errorMessage = (String) request.getAttribute("errorMessage");
+        if (errorMessage != null) {
+    %>
+        <div style="color: #cc241d; font-weight: bold; margin-bottom: 20px;">
+            <%= errorMessage %>
+        </div>
+    <%
+        }
+    %>
+
     <h2>Add New Book</h2>
     <form action="addBook" method="post">
         <label for="title"></label>

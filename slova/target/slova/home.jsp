@@ -62,53 +62,12 @@
         <%
                 for (Book book : books) {
         %>
-        
         <tbody>
         <tr>
-            <td>
-                <%--
-                <label>
-                    <input type="text" placeholder="EMPTY" value="<%= book.getTitle()%>" class="table-input">
-                </label>
-                --%>
-                <%= book.getTitle() %>
-            </td>
-            <td>
-                <%--
-                <label>
-                    <input type="text" data-placeholder="EMPTY" value="<%= book.getAuthor()%>" class="table-input">
-                </label>
-                --%>
-                <%= book.getAuthor() %><br>
-            </td>
-            <td>
-                <%--
-                <label>
-                    <input type="text" placeholder="EMPTY" value="<%= book.getNumberOfCopies()%>" class="table-input">
-                </label>
-                --%>
-                <%= book.getNumberOfCopies() %>
-            </td>
-            <td>
-                <%--
-                <label>
-                    <input type="text" placeholder="EMPTY" value="<%= book.getYearOfPublication()%>" class="table-input">
-                </label>
-                --%>
-                <%= book.getYearOfPublication() %><br>
-            </td>
-            <td>
-                <div class="searchResult">
-                    <%--
-                    <form action="lendBook" method="post">
-                        <input type="hidden" name="bookId" value="<%= book.getId() %>">
-                        <input type="text" name="cardId" placeholder="Enter Card ID" required>
-                        <input type="date" name="returnDate" required>
-                        <button type="submit">Lend the Book</button>
-                    </form>
-                    --%>
-                </div>
-            </td>
+            <td><%= book.getTitle() %></td>
+            <td><%= book.getAuthor() %></td>
+            <td><%= book.getNumberOfCopies() %></td>
+            <td><%= book.getYearOfPublication() %></td>
             <%
                 String message = (String) request.getAttribute("message");
                 if (message != null) {
