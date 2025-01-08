@@ -55,8 +55,9 @@
             <tr>
                 <th>Title</th>
                 <th>Author</th>
-                <th>Number Of Copies</th>
                 <th>Year Of Publication</th>
+                <th>Library</th>
+                <th>Number Of Copies</th>
             </tr>
         </thead>
         <%
@@ -66,8 +67,9 @@
         <tr>
             <td><%= book.getTitle() %></td>
             <td><%= book.getAuthor() %></td>
-            <td><%= book.getNumberOfCopies() %></td>
             <td><%= book.getYearOfPublication() %></td>
+            <td><%= book.getLibraryName() %></td>
+            <td><%= book.getNumberOfCopies() %></td>
             <%
                 String message = (String) request.getAttribute("message");
                 if (message != null) {

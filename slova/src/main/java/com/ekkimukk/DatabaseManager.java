@@ -45,23 +45,23 @@ public class DatabaseManager {
     //         return null;
     //     }
     // }
-
-    public static List<Book> getBooks() throws SQLException, ParseException {
-        List<Book> books = new ArrayList<>();
-        String query = "SELECT * FROM books";
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
-        while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String title = resultSet.getString("title");
-            String author = resultSet.getString("author");
-            int numberOfCopies = resultSet.getInt("number_of_copies");
-            int yearOfPublication = resultSet.getInt("year_of_publication");
-            books.add(new Book(id, title, author, numberOfCopies, yearOfPublication));
-        }
-        System.out.printf(books.toString());
-        return books;
-    }
+    //
+    // public static List<Book> getBooks() throws SQLException, ParseException {
+    //     List<Book> books = new ArrayList<>();
+    //     String query = "SELECT * FROM books";
+    //     Statement statement = connection.createStatement();
+    //     ResultSet resultSet = statement.executeQuery(query);
+    //     while (resultSet.next()) {
+    //         int id = resultSet.getInt("id");
+    //         String title = resultSet.getString("title");
+    //         String author = resultSet.getString("author");
+    //         int numberOfCopies = resultSet.getInt("number_of_copies");
+    //         int yearOfPublication = resultSet.getInt("year_of_publication");
+    //         books.add(new Book(id, title, author, numberOfCopies, yearOfPublication));
+    //     }
+    //     System.out.printf(books.toString());
+    //     return books;
+    // }
     //
     // // Обновление записей в таблице БД "Dreams"
     // public static void updateDreams(int user_id, List<Dream> data) throws SQLException {

@@ -29,7 +29,14 @@ public class ShowAllBooksServlet extends HttpServlet {
                  ResultSet rs = stmt.executeQuery("SELECT id, title, author, number_of_copies, year_of_publication FROM books")) {
 
                 while (rs.next()) {
-                    Book book = new Book(rs.getInt("id"), rs.getString("title"), rs.getString("author"), rs.getInt("number_of_copies"), rs.getInt("year_of_publication"));
+                    Book book = new Book(
+                        rs.getInt("id"), 
+                        rs.getString("title"), 
+                        rs.getString("author"), 
+                        rs.getInt("year_of_publication"),
+                        rs.getString("1"), 
+                        rs.getInt("number_of_copies")
+                    );
                     books.add(book);
                 }
             }

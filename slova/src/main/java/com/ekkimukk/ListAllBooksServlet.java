@@ -25,11 +25,26 @@ public class ListAllBooksServlet extends HttpServlet {
             String password = "password";
 
             try (Connection conn = DriverManager.getConnection(url, user, password);
-                 Statement stmt = conn.createStatement();
-                 ResultSet rs = stmt.executeQuery("SELECT id, title, author, number_of_copies, year_of_publication FROM books")) {
+                Statement stmt = conn.createStatement();
+                // ResultSet rs = stmt.executeQuery("SELECT id, title, author, number_of_copies, year_of_publication FROM books")) {
+                // ResultSet rs = stmt.executeQuery("SELECT id, title, author, number_of_copies, year_of_publication FROM books")) {
+
+                ResultSet rs = stmt.executeQuery(
+                    "SELECT b.id AS book_id, b.title, b.author, b.year_of_publication, " +
+                    "l.name AS library_name, lb.number_of_copies " +
+                    "FROM books b " +
+                    "JOIN library_book lb ON b.id = lb.book_id " +
+                    "JOIN libraries l ON lb.library_id = l.id")) {
 
                 while (rs.next()) {
-                    Book book = new Book(rs.getInt("id"), rs.getString("title"), rs.getString("author"), rs.getInt("number_of_copies"), rs.getInt("year_of_publication"));
+                    Book book = new Book(
+                        rs.getInt("book_id"),
+                        rs.getString("title"),
+                        rs.getString("author"),
+                        rs.getInt("year_of_publication"),
+                        rs.getString("library_name"),
+                        rs.getInt("number_of_copies")
+                    );
                     books.add(book);
                 }
             }

@@ -37,7 +37,14 @@ public class SearchBooksServlet extends HttpServlet {
 
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                Book book = new Book(rs.getInt("id"), rs.getString("title"), rs.getString("author"), rs.getInt("number_of_copies"), rs.getInt("year_of_publication"));
+                Book book = new Book(
+                    rs.getInt("id"), 
+                    rs.getString("title"), 
+                    rs.getString("author"), 
+                    rs.getInt("year_of_publication"),
+                    rs.getString("1"), 
+                    rs.getInt("number_of_copies")
+                );
                 books.add(book);
             }
         } catch (Exception e) {
