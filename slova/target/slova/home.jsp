@@ -22,7 +22,7 @@
 
         <%-- THREE OPTIONS --%>
         <form action="" method="get">
-            <button class="button-56" id="button-green" type="submit" formaction="./nedopsa.jsp">Допса</button>
+            <button class="button-56" id="button-green" type="submit" formaction="./nedopsa.jsp">Library Operations</button>
             <br>
             <button class="button-56" id="button-blue" type="submit" formaction="./game/index.html">Entertainment</button>
             <br>

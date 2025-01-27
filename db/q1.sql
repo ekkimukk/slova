@@ -53,3 +53,14 @@ CREATE TABLE library_book (
     FOREIGN KEY (library_id) REFERENCES libraries(id)
 );
 
+CREATE TABLE book_transfers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    book_id INT NOT NULL,
+    from_library_id INT NOT NULL,
+    to_library_id INT NOT NULL,
+    transfer_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (book_id) REFERENCES library_book (id),
+    FOREIGN KEY (from_library_id) REFERENCES libraries (id),
+    FOREIGN KEY (to_library_id) REFERENCES libraries (id)
+);
+

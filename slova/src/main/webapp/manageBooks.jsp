@@ -52,8 +52,8 @@
             <tr>
                 <th>Title</th>
                 <th>Author</th>
-                <th>Number of Copies</th>
                 <th>Year of Publication</th>
+                <th>Number of Copies</th>
             </tr>
         </thead>
         <tbody>
@@ -64,11 +64,11 @@
         %>
         <tr>
             <form action="updateBook" method="post">
-                <input type="hidden" name="bookId" value="<%= book.getId() %>">
+                <input type="hidden" name="bookId" value="<%= book.getId() %>"> 
                 <td><input type="text" name="title" value="<%= book.getTitle() %>" required></td>
                 <td><input type="text" name="author" value="<%= book.getAuthor() %>" required></td>
-                <td><input id="numberOfCopies" type="text" name="numberOfCopies" value="<%= book.getNumberOfCopies() %>" required></td>
                 <td><input id="yearOfPublication" type="text" name="yearOfPublication" value="<%= book.getYearOfPublication() %>" required></td>
+                <td><input id="numberOfCopies" type="text" name="numberOfCopies" value="<%= book.getNumberOfCopies() %>" required></td>
                 <td><button type="submit" class="button-89" role="button">Update</button></td>
             </form>
             <td>

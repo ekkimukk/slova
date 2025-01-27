@@ -5,6 +5,8 @@
 <html>
 <head>
     <title>Manage Library Operations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nedopsa.css">
 </head>
 <body>
     <header>
@@ -34,7 +36,7 @@
             %>
         </select>
         <br><br>
-        <button type="submit">Create Card</button>
+        <button class="button-56" type="submit">Create Card</button>
     </form>
 
 
@@ -48,10 +50,10 @@
             <% 
                 try (Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/library_db", "library_user", "password");
                      Statement stmt = conn.createStatement();
-                     ResultSet rs = stmt.executeQuery("SELECT books.id AS book_id, books.title AS book_title FROM books")) {
+                     ResultSet rs = stmt.executeQuery("SELECT books.id, books.title FROM books")) {
                     while (rs.next()) {
             %>
-                        <option value="<%= rs.getInt("book_id") %>"><%= rs.getString("book_title") %></option>
+                        <option value="<%= rs.getInt("id") %>"><%= rs.getString("title") %></option>
             <%
                     }
                 } catch (SQLException e) {
@@ -60,8 +62,8 @@
             %>
         </select>
         <br><br>
-        <label for="sourceLibrary">Source Library:</label>
-        <select id="sourceLibrary" name="sourceLibrary">
+        <label for="fromLibraryId">Source Library:</label>
+        <select id="fromLibraryId" name="fromLibraryId">
             <%-- Dynamically populate libraries --%>
             <% 
                 try (Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/library_db", "library_user", "password");
@@ -78,8 +80,8 @@
             %>
         </select>
         <br><br>
-        <label for="destinationLibrary">Destination Library:</label>
-        <select id="destinationLibrary" name="destinationLibrary">
+        <label for="toLibraryId">Destination Library:</label>
+        <select id="toLibraryId" name="toLibraryId">
             <%-- Dynamically populate libraries --%>
             <% 
                 try (Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/library_db", "library_user", "password");
@@ -96,7 +98,7 @@
             %>
         </select>
         <br><br>
-        <button type="submit">Request Transfer</button>
+        <button class="button-56" type="submit">Request Transfer</button>
     </form>
 
     <!-- Display messages -->
@@ -119,7 +121,7 @@
         }
     %>
 
-    <footer>
+    <footer class="footer">
         <p>Created and posted by ekkimukk.</p>
         <p>Copyright (c) 2024. All Rights Reserved.</p>
     </footer>
